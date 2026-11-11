@@ -6,69 +6,50 @@ const myDeck = new Deck();
 const slim = new Player(`Slim`);
 const luke = new Player(`Luke`);
 
-// Del 1
+console.log("===== Del 1 =====");
 myDeck.buildDeck();
 console.table(myDeck.cards);
 myDeck.shuffle();
 console.table(myDeck.cards);
 
-// Del 2
+console.log("===== Del 2 =====");
 console.log(slim, luke);
-for (let i = 0; i < 5; i++) {
-  const slimCard = myDeck.drawCard();
-  slim.hand.push(slimCard);
-
-  const lukeCard = myDeck.drawCard();
-  luke.hand.push(lukeCard);
-}
+slim.drawCards(myDeck, 5);
+luke.drawCards(myDeck, 5);
 
 console.log(slim, luke);
 console.table(myDeck.cards);
-console.log(myDeck.cards.length);
-console.log(slim.getHandValue());
-console.log(luke.getHandValue());
+console.log(`Cards left in deck: ${myDeck.cards.length}`);
+console.log(`Slim's hand value: ${slim.getHandValue()}`);
+console.log(`Luke's hand value: ${luke.getHandValue()}`);
 
-// Del 3
+console.log("===== Del 3 =====");
 const discardPile = [];
 
-for (let i = 0; i < 2; i++) {
-  const slimDiscardCard = slim.discardCard();
-  discardPile.push(slimDiscardCard);
+slim.discardCards(discardPile, 2);
+luke.discardCards(discardPile, 2);
 
-  const lukeDiscardCard = luke.discardCard();
-  discardPile.push(lukeDiscardCard);
-}
-
-for (let i = 0; i < 2; i++) {
-  const slimCard = myDeck.drawCard();
-  slim.hand.push(slimCard);
-
-  const lukeCard = myDeck.drawCard();
-  luke.hand.push(lukeCard);
-}
+slim.drawCards(myDeck, 2);
+luke.drawCards(myDeck, 2);
 
 console.log(slim, luke);
 console.table(myDeck.cards);
-console.log(myDeck.cards.length);
-console.log(slim.getHandValue(), luke.getHandValue());
+console.log(`Cards left in deck: ${myDeck.cards.length}`);
+console.log(`Slim's hand value: ${slim.getHandValue()}`);
+console.log(`Luke's hand value: ${luke.getHandValue()}`);
 
-// Del  4
-for (let i = 0; i < 5; i++) {
-  const slimDiscardCard = slim.discardCard();
-  discardPile.push(slimDiscardCard);
-
-  const lukeDiscardCard = luke.discardCard();
-  discardPile.push(lukeDiscardCard);
-}
+console.log("===== Del 4 =====");
+slim.discardCards(discardPile, 5);
+luke.discardCards(discardPile, 5);
 
 while (discardPile.length > 0) {
     const card = discardPile.pop();
     myDeck.cards.push(card);
 }
 
-console.log(slim.hand.length);
-console.log(luke.hand.length);
-console.log(discardPile.length);
-console.log(myDeck.cards.length);
+console.log(`Slim's cards: ${slim.hand.length}`);
+console.log(`Luke's cards: ${luke.hand.length}`);
+console.log(`Cards in discard pile: ${discardPile.length}`);
+console.log(`Cards in deck: ${myDeck.cards.length}`);
 myDeck.shuffle();
 console.table(myDeck.cards);
