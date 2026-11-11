@@ -6,8 +6,8 @@ export class Deck {
     }
 
     buildDeck() {
-        this.suits = ["hearts", "clubs", "spades", "diamonds"]
-        this.names = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
+        this.suits = ["hearts", "clubs", "spades", "diamonds"];
+        this.names = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
         
         for(const suit of this.suits) {
             for(const name of this.names) {
@@ -27,5 +27,10 @@ export class Deck {
           this.cards[i] = this.cards[j];
           this.cards[j] = temp;
         }
+    }
+
+    drawCard() {
+        const card = this.cards.pop();
+        return card;
     }
 }
