@@ -11,4 +11,9 @@ export class Player {
         }
         return total;
     }
+
+    discardCard() {
+        const takeLastCard = this.hand.pop();
+        return takeLastCard;
+    }
 }

@@ -27,3 +27,27 @@ console.table(myDeck.cards);
 console.log(myDeck.cards.length);
 console.log(slim.getHandValue()); 
 console.log(luke.getHandValue()); 
+
+// Del 3
+const discardPile = [];
+
+for (let i = 0; i < 2; i++) {
+    const slimDiscardCard = slim.discardCard();
+    discardPile.push(slimDiscardCard);
+
+    const lukeDiscardCard = luke.discardCard();
+    discardPile.push(lukeDiscardCard);
+}
+
+for (let i = 0; i < 2; i++) {
+  const slimCard = myDeck.drawCard();
+  slim.hand.push(slimCard);
+
+  const lukeCard = myDeck.drawCard();
+  luke.hand.push(lukeCard);
+}
+
+console.log(slim, luke);
+console.table(myDeck.cards);
+console.log(myDeck.cards.length);
+console.log(slim.getHandValue(), luke.getHandValue()); 
