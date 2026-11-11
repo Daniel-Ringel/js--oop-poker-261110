@@ -25,18 +25,18 @@ for (let i = 0; i < 5; i++) {
 console.log(slim, luke);
 console.table(myDeck.cards);
 console.log(myDeck.cards.length);
-console.log(slim.getHandValue()); 
-console.log(luke.getHandValue()); 
+console.log(slim.getHandValue());
+console.log(luke.getHandValue());
 
 // Del 3
 const discardPile = [];
 
 for (let i = 0; i < 2; i++) {
-    const slimDiscardCard = slim.discardCard();
-    discardPile.push(slimDiscardCard);
+  const slimDiscardCard = slim.discardCard();
+  discardPile.push(slimDiscardCard);
 
-    const lukeDiscardCard = luke.discardCard();
-    discardPile.push(lukeDiscardCard);
+  const lukeDiscardCard = luke.discardCard();
+  discardPile.push(lukeDiscardCard);
 }
 
 for (let i = 0; i < 2; i++) {
@@ -50,4 +50,25 @@ for (let i = 0; i < 2; i++) {
 console.log(slim, luke);
 console.table(myDeck.cards);
 console.log(myDeck.cards.length);
-console.log(slim.getHandValue(), luke.getHandValue()); 
+console.log(slim.getHandValue(), luke.getHandValue());
+
+// Del  4
+for (let i = 0; i < 5; i++) {
+  const slimDiscardCard = slim.discardCard();
+  discardPile.push(slimDiscardCard);
+
+  const lukeDiscardCard = luke.discardCard();
+  discardPile.push(lukeDiscardCard);
+}
+
+while (discardPile.length > 0) {
+    const card = discardPile.pop();
+    myDeck.cards.push(card);
+}
+
+console.log(slim.hand.length);
+console.log(luke.hand.length);
+console.log(discardPile.length);
+console.log(myDeck.cards.length);
+myDeck.shuffle();
+console.table(myDeck.cards);
