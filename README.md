@@ -1,3 +1,5 @@
+//Detta är kodgransknings delen.
+
 **Skapa lämpliga klasser för Card, Player och Deck. Använd dig av ES6 Classes**
 
 ## Del 1
